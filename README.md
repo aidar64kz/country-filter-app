@@ -30,7 +30,7 @@ To Run Test Suite:
 
 To Start Server:
 
-`npm run dev`  
+`npm run start`  
 
 EXTRA NOTES:
 One thing you may have noticed is that in a Vite project, index.html is front-and-central instead of being tucked away inside public. This is intentional: during development Vite is a server, and index.html is the entry point to your application.
