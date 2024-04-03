@@ -9,9 +9,10 @@ An application used to filter country from GraphQL server, built with React, Gra
 In this app mobile version, special styles for components were not considered. Depending on requirements, a semi-minimalistic approach was implemented.
 
 ## Project Screen Shot(s)
-![image](https://github.com/aidar64kz/country-filter-app/assets/63362087/1bb0e59e-55e3-4593-9a2b-c65941e735a8)
-![image](https://github.com/aidar64kz/country-filter-app/assets/63362087/97d08795-0cfe-4be4-bc8b-54be9810bb85)
-![image](https://github.com/aidar64kz/country-filter-app/assets/63362087/6f769b9e-fa02-4d82-872c-c0c88cca6e51)
+![image](https://github.com/aidar64kz/country-filter-app/assets/63362087/fd32854a-ea7a-4fdc-b03b-dca50ce55c8d)
+![image](https://github.com/aidar64kz/country-filter-app/assets/63362087/dd11d165-2267-415c-9043-524d6aba6b94)
+![image](https://github.com/aidar64kz/country-filter-app/assets/63362087/980f1f58-f59f-473d-a5ec-a4f9653fe885)
+
 
 
 
