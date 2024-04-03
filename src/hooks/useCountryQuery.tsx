@@ -1,13 +1,12 @@
 import { useQuery } from "@apollo/client";
-import { countriesQuery, Country, Filter } from "../graphql/queries";
+import { allCountriesQuery, filteredCountryQuery, Country } from "../graphql/queries";
 
 
-export default function useCountryQuery(countryCode: string, countryCodeInputLength: number) {
-  const { data, loading, error } = useQuery<Country, Filter>(countriesQuery, {
-    variables: { code: countryCode},
-    skip: countryCode.length !== countryCodeInputLength
+export default function useCountryQuery(countryCode?: string) {
+  const query = countryCode ? filteredCountryQuery : allCountriesQuery;
+   const { data, loading, error } = useQuery<Country>(query, {
+    variables: countryCode ? { eq: countryCode } : undefined, 
   });
-
 
   return { data, loading, error };
 }

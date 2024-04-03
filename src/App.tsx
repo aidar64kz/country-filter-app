@@ -6,15 +6,14 @@ import useCountryQuery from "./hooks/useCountryQuery";
 
 const App: React.FC = () => {
   const [countryCode, setCountryCode] = useState<string>("");
-  const countryCodeInputLength = 2 // Predefined length of country code for fetching data
 
-  const { data, loading, error } = useCountryQuery( countryCode, countryCodeInputLength );
+  const { data, loading, error } = useCountryQuery( countryCode );
 
   return (
-    <div className="flex flex-col items-center h-screen bg-gradient-to-r from-cyan-400 to-blue-600">
+    <div className="flex flex-col max-h-full items-center">
       <h1 className="text-white text-4xl mt-32 mb-8">Country Filter App</h1>
-      <CountryFilter filter={countryCode} onFilterChange={(value)=>setCountryCode(value)} />
-      <div className="mt-4">
+      <div className="w-1/2">
+        <CountryFilter filter={countryCode} onFilterChange={(value)=>setCountryCode(value)} />
         <CountryList loading={loading} error={error} data={data} />
       </div>
     </div>

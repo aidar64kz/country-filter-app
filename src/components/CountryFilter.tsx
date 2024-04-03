@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 
 interface CountryFilterProps {
   filter: string;
@@ -9,24 +9,35 @@ const CountryFilter: React.FC<CountryFilterProps> = ({
   filter,
   onFilterChange,
 }) => {
-  const maxLengthInput = 2 // Predefined maximum length of country code input
+  const [inputValue, setInputValue] = useState(filter); 
+  const maxLengthInput = 2; 
+  const debounceTime = 500;
+
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const inputCountryCode = e.target.value.toUpperCase();
-        onFilterChange(inputCountryCode);
+      setInputValue(inputCountryCode);
     },
-    [onFilterChange]
+    []
   );
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      onFilterChange(inputValue);
+    }, debounceTime);
+
+    return () => clearTimeout(timeoutId); 
+  }, [inputValue, onFilterChange, debounceTime]); 
 
   return (
     <input
       type="text"
       placeholder="Write a country code. For example: EE"
-      value={filter}
+      value={inputValue}
       maxLength={maxLengthInput}
       onChange={handleChange}
-      className="my-4 px-4 py-2  min-w-[500px] rounded focus:outline-none"
-      data-testid="country-filter-input" 
+      className="my-4 px-4 py-2 w-full rounded focus:outline-none"
+      data-testid="country-filter-input"
     />
   );
 };

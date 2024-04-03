@@ -19,15 +19,25 @@ test('CountryList renders error state correctly', () => {
 
 test('CountryList renders data correctly', () => {
   const data = {
-    country: {
-      code: 'US',
-      name: 'United States',
-    },
+    countries: [
+      {
+        code: 'US',
+        name: 'United States',
+      },
+      {
+        code: 'CA',
+        name: 'Canada',
+      }
+    ]
   };
   const { getByText } = render(<CountryList loading={false} error={undefined} data={data} />);
-  const countryName = getByText('United States');
-  const countryCode = getByText('US');
+  const countryNameUS = getByText('United States');
+  const countryCodeUS = getByText('US');
+  const countryNameCA = getByText('Canada');
+  const countryCodeCA = getByText('CA');
   
-  expect(countryName).toBeTruthy();
-  expect(countryCode).toBeTruthy();
+  expect(countryNameUS).toBeTruthy();
+  expect(countryCodeUS).toBeTruthy();
+  expect(countryNameCA).toBeTruthy();
+  expect(countryCodeCA).toBeTruthy();
 });

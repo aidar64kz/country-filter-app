@@ -1,21 +1,30 @@
 import { gql } from '@apollo/client';
 
 export interface Country {
-  country :{
+  countries: {
     code: string;
     name: string;
-  }
+  }[]
 }
 
 export interface Filter {
   code: string;
 }
 
-export const countriesQuery = gql`
-query Countries($code: ID!) {
-  country(code: $code) {
-    name
-    code
+export const allCountriesQuery = gql`
+  query AllCountries {
+    countries {
+      code
+      name
+    }
   }
-}
+`;
+
+export const filteredCountryQuery = gql`
+  query FilteredCountry($eq: String) {
+    countries(filter: { code: { eq: $eq } }) {
+      code
+      name
+    }
+  }
 `;

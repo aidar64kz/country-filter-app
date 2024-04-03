@@ -5,13 +5,13 @@
 :root {
   font-family: 'Roboto', system-ui, sans-serif, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  background-image: linear-gradient(to right, cyan, #3b82f6);
   font-weight: 400;
   min-width: 500px;
   margin: 0 auto;
   text-align: center;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
